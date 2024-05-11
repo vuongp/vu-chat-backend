@@ -23,6 +23,20 @@ repositories {
     mavenCentral()
 }
 
+ktor {
+    docker {
+        localImageName.set("vuchat-backend")
+        imageTag.set("0.0.1-beta")
+        portMappings.set(listOf(
+            io.ktor.plugin.features.DockerPortMapping(
+                3333,
+                3333,
+                io.ktor.plugin.features.DockerPortMappingProtocol.TCP
+            )
+        ))
+    }
+}
+
 dependencies {
     implementation("io.ktor:ktor-client-core")
     implementation("io.ktor:ktor-client-cio")

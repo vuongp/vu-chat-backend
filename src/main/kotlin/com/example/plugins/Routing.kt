@@ -44,7 +44,7 @@ fun Application.configureRouting() {
         post("/question") {
             val question = call.receive<QuestionPostRequest>()
 
-            val response = client.post("http://chu:11434/api/generate") {
+            val response = client.post("http://100.65.41.15:11434/api/generate") {
                 contentType(ContentType.Application.Json)
                 setBody(
                     GenerateRequest(
